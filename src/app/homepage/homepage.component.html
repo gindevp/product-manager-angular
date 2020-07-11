@@ -1,1 +1,15 @@
-<p>homepage works!</p>
+<!--<p>{{product1.name}}</p>-->
+<table>
+  <tr>
+    <td>id</td>
+    <td>code</td>
+    <td>name</td>
+    <td>date</td>
+  </tr>
+  <tr>
+    <td>{{product1.id}}</td>
+    <td>{{product1.code}}</td>
+    <td>{{product1.name}}</td>
+    <td>{{product1.createDate.getUTCDay()}}/{{product1.createDate.getMonth()}}/{{product1.createDate.getFullYear()}}</td>
+  </tr>
+</table>

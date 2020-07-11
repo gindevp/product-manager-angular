@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Product} from "../product";
 
 @Component({
   selector: 'app-homepage',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  product1: Product;
+
+  constructor() {
+    this.product1 = {
+      id: 1,
+      code: "CG01",
+      name: "San pham 1",
+      createDate: new Date()
+    }
+  }
 
   ngOnInit(): void {
   }
