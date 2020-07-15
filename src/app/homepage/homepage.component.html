@@ -6,10 +6,12 @@
     <td>name</td>
     <td>date</td>
   </tr>
-  <tr>
-    <td>{{product1.id}}</td>
-    <td>{{product1.code}}</td>
-    <td>{{product1.name}}</td>
-    <td>{{product1.createDate.getUTCDay()}}/{{product1.createDate.getMonth()}}/{{product1.createDate.getFullYear()}}</td>
+  <tr *ngFor="let p of products">
+    <td>{{p.id}}</td>
+    <td>{{p.code}}</td>
+    <td>{{p.name}}</td>
+    <td>{{p.createDate.getDay() + "/" + p.createDate.getMonth()
+      +"/" + p.createDate.getFullYear()}}</td>
   </tr>
+
 </table>

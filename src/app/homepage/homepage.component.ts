@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from "../product";
+import {ProductService} from "../product.service";
 
 @Component({
   selector: 'app-homepage',
@@ -8,15 +9,19 @@ import {Product} from "../product";
 })
 export class HomepageComponent implements OnInit {
 
-  product1: Product;
+  products: Product[] = [];
 
-  constructor() {
-    this.product1 = {
-      id: 1,
-      code: "CG01",
-      name: "San pham 1",
-      createDate: new Date()
-    }
+  constructor(private productService: ProductService) {
+    this.getAll();
+  }
+
+  getAll() {
+    this.productService.getAllProduct().subscribe(products => {
+      this.products = products;
+      this.products.map(product => {
+        product.createDate = new Date(product.createDate);
+      })
+    })
   }
 
   ngOnInit(): void {
