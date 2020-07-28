@@ -5,13 +5,18 @@
     <td>code</td>
     <td>name</td>
     <td>date</td>
+    <td>Action</td>
   </tr>
   <tr *ngFor="let p of products">
     <td>{{p.id}}</td>
     <td>{{p.code}}</td>
     <td>{{p.name}}</td>
     <td>{{p.createDate.getDay() + "/" + p.createDate.getMonth()
-      +"/" + p.createDate.getFullYear()}}</td>
+    + "/" + p.createDate.getFullYear()}}</td>
+    <td>
+      <a [routerLink]="'/edit/'+p.id">Chinh sua</a>
+    </td>
   </tr>
 
 </table>
+<a routerLink="/create">Tao moi</a>

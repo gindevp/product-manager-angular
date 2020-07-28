@@ -1,1 +1,24 @@
-<p>newproduct works!</p>
+<form [formGroup]="productForm" (ngSubmit)="createProduct()">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" formControlName="code"></td>
+    </tr>
+    <tr>
+      <td>createDate</td>
+      <td><input type="date" formControlName="createDate"></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="tao moi"></td>
+    </tr>
+  </table>
+</form>

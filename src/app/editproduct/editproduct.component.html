@@ -1,0 +1,21 @@
+<p>editproduct works!</p>
+<form [formGroup]="productForm" (ngSubmit)="updateProduct(product.id)">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" [value]="product.name == null ? product.name : ''" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>Code</td>
+      <td><input type="text" [value]="product.code== null ? product.code : ''" formControlName="code"></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><input type="date" [value]="product.createDate== null ? product.createDate : ''" formControlName="createDate"></td>
+    </tr>
+    <tr>
+      <td>Decription</td>
+      <td><input type="text" [value]="product.description== null ? product.description : ''" formControlName="description"></td>
+    </tr>
+  </table>
+</form>

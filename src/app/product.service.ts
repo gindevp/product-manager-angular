@@ -19,6 +19,14 @@ export class ProductService {
   }
 
   createProduct(product: Product): Observable<Product>{
-    return this.httpClient.post<Product>(API_URL+"/product", product)
+    return this.httpClient.post<Product>(API_URL+"/product/", product)
+  }
+
+  getProduct(id:number): Observable<Product>{
+    return this.httpClient.get<Product>(API_URL+`/product/${id}`)
+  }
+
+  updateProduct(id:number, product:Product): Observable<Product>{
+    return this.httpClient.put<Product>(API_URL+`/product/${id}`,product)
   }
 }
