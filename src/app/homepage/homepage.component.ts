@@ -14,7 +14,6 @@ export class HomepageComponent implements OnInit {
   constructor(private productService: ProductService) {
     this.getAll();
   }
-
   getAll() {
     this.productService.getAllProduct().subscribe(products => {
       this.products = products;
@@ -24,7 +23,13 @@ export class HomepageComponent implements OnInit {
     })
   }
 
+  delete(id){
+    this.productService.deleteProduct(id).subscribe();
+    this.getAll();
+  }
+
   ngOnInit(): void {
+
   }
 
 }

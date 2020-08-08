@@ -1,20 +1,20 @@
-<form [formGroup]="productForm" (ngSubmit)="createProduct()">
+<form (ngSubmit)="createProduct()">
   <table>
     <tr>
       <td>Name</td>
-      <td><input type="text" formControlName="name"></td>
+      <td><input type="text" name="name" [(ngModel)]="product.name"></td>
     </tr>
     <tr>
       <td>Name</td>
-      <td><input type="text" formControlName="code"></td>
+      <td><input type="text" name="code" [(ngModel)]="product.code"></td>
     </tr>
     <tr>
       <td>createDate</td>
-      <td><input type="date" formControlName="createDate"></td>
+      <td><input type="date" name="createDate" [(ngModel)]="product.createDate" ></td>
     </tr>
     <tr>
       <td>description</td>
-      <td><input type="text" formControlName="description"></td>
+      <td><input type="text" name="des" [(ngModel)]="product.description"></td>
     </tr>
     <tr>
       <td></td>

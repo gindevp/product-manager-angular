@@ -10,14 +10,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./newproduct.component.css']
 })
 export class NewproductComponent implements OnInit {
-
-  productForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    code: new FormControl(),
-    createDate: new FormControl(),
-    description: new FormControl()
-  })
-
+  product: Product={
+    id:0,
+    name:"",
+    description:"",
+    code:"",
+    createDate:null
+  };
   constructor(private productService: ProductService,
               private router: Router) {
   }
@@ -26,13 +25,9 @@ export class NewproductComponent implements OnInit {
   }
 
   createProduct() {
-    const product: Product = {
-      name: this.productForm.value.name,
-      code: this.productForm.value.code,
-      description: this.productForm.value.description,
-    }
-
-    this.productService.createProduct(product).subscribe(() => {
+debugger
+    this.productService.createProduct(this.product)
+      .subscribe(() => {
       this.router.navigate(['/']);
     });
   }

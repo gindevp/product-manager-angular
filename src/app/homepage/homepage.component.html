@@ -1,22 +1,31 @@
 <!--<p>{{product1.name}}</p>-->
-<table>
-  <tr>
-    <td>id</td>
-    <td>code</td>
-    <td>name</td>
-    <td>date</td>
-    <td>Action</td>
-  </tr>
-  <tr *ngFor="let p of products">
-    <td>{{p.id}}</td>
-    <td>{{p.code}}</td>
-    <td>{{p.name}}</td>
-    <td>{{p.createDate.getDay() + "/" + p.createDate.getMonth()
-    + "/" + p.createDate.getFullYear()}}</td>
-    <td>
-      <a [routerLink]="'/edit/'+p.id">Chinh sua</a>
-    </td>
-  </tr>
+<div class="container">
+  <div class="row">
+    <h1>Danh sách sản phẩm</h1>
+    <table class="table-bordered table-hover">
+      <tr>
+        <td>id</td>
+        <td>code</td>
+        <td>name</td>
+        <td>date</td>
+        <td>Action</td>
+      </tr>
+      <tr *ngFor="let p of products">
+        <td>{{p.id}}</td>
+        <td>{{p.code}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.createDate.getDay() + "/" + p.createDate.getMonth()
+        + "/" + p.createDate.getFullYear()}}</td>
+        <td>
+          <a class="btn btn-danger" [routerLink]="'/edit/'+p.id">Edit</a>
+        </td>
+        <td>
+          <a class="btn btn-danger" (click)="delete(p.id)">Delete</a>
+        </td>
+      </tr>
 
-</table>
-<a routerLink="/create">Tao moi</a>
+    </table>
+    <a [routerLink]="'/create'" >Tao moi</a>
+  </div>
+</div>
+

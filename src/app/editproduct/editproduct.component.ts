@@ -12,22 +12,22 @@ import {Product} from "../product";
 })
 export class EditproductComponent implements OnInit {
 
-  productForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    code: new FormControl(),
-    createDate: new FormControl(),
-    description: new FormControl()
-  })
   sub:Subscription;
-  product: Product;
+  product: Product = {
+    id:0,
+    name:"name",
+    createDate: null,
+    code:"àhajsf",
+    description: "Mo ta"
+  };
   id: number;
 
   constructor(private productService: ProductService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
-    this.sub = this.activatedRoute.paramMap.subscribe(async (paramMap: ParamMap) => {
+    this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.product = await this.getProduct(this.id);
+      this.getProduct(this.id);
     })
   }
 
@@ -35,16 +35,15 @@ export class EditproductComponent implements OnInit {
   }
 
   getProduct(id: number){
-    return this.productService.getProduct(id).toPromise();
+    this.productService.getProduct(id).
+    subscribe(product =>{
+      this.product = product;
+    });
   }
 
-  updateProduct(id:number){
-    const product: Product = {
-      name: this.productForm.value.name,
-      code: this.productForm.value.code,
-      description: this.productForm.value.description,
-    }
-     this.productService.updateProduct(id, product);
+  updateProduct(){
+    debugger
+    this.productService.updateProduct(this.product.id, this.product);
   }
 
 }

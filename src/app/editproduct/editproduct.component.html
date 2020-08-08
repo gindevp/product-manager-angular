@@ -1,21 +1,29 @@
 <p>editproduct works!</p>
-<form [formGroup]="productForm" (ngSubmit)="updateProduct(product.id)">
+<form name="myform" (ngSubmit)="updateProduct()">
   <table>
     <tr>
       <td>Name</td>
-      <td><input type="text" [value]="product.name == null ? product.name : ''" formControlName="name"></td>
+      <td>
+        <input type="text" name="pName" [(ngModel)]="product.name">
+      </td>
     </tr>
     <tr>
       <td>Code</td>
-      <td><input type="text" [value]="product.code== null ? product.code : ''" formControlName="code"></td>
+      <td><input type="text" name="code" [ngModel]="product.code"></td>
     </tr>
     <tr>
       <td>Date</td>
-      <td><input type="date" [value]="product.createDate== null ? product.createDate : ''" formControlName="createDate"></td>
+      <td><input type="date" name="startDate" [ngModel]="product.createDate">
+      </td>
     </tr>
     <tr>
       <td>Decription</td>
-      <td><input type="text" [value]="product.description== null ? product.description : ''" formControlName="description"></td>
+      <td><input type="text" name="des" [ngModel]="product.description"
+                 ></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="submit"></td>
     </tr>
   </table>
 </form>

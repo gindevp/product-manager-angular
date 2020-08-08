@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {HttpClientModule} from "@angular/common/http";
 import { NewproductComponent } from './newproduct/newproduct.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { EditproductComponent } from './editproduct/editproduct.component';
 
 @NgModule({
@@ -16,12 +16,13 @@ import { EditproductComponent } from './editproduct/editproduct.component';
     NewproductComponent,
     EditproductComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
