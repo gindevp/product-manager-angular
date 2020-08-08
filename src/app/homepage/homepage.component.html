@@ -3,13 +3,16 @@
   <div class="row">
     <h1>Danh sách sản phẩm</h1>
     <table class="table-bordered table-hover">
+      <thead class="thead-dark">
       <tr>
-        <td>id</td>
-        <td>code</td>
-        <td>name</td>
-        <td>date</td>
-        <td>Action</td>
+        <td scope="col">id</td>
+        <td scope="col">code</td>
+        <td scope="col">name</td>
+        <td scope="col">date</td>
+        <td scope="col">Action</td>
       </tr>
+      </thead>
+      <tbody>
       <tr *ngFor="let p of products">
         <td>{{p.id}}</td>
         <td>{{p.code}}</td>
@@ -17,12 +20,13 @@
         <td>{{p.createDate.getDay() + "/" + p.createDate.getMonth()
         + "/" + p.createDate.getFullYear()}}</td>
         <td>
-          <a class="btn btn-danger" [routerLink]="'/edit/'+p.id">Edit</a>
+          <button type="button" class="btn btn-outline-danger" [routerLink]="'/edit/'+p.id">Edit</button>
+          <button type="button" class="btn btn-outline-warning" (click)="delete(p.id)">Delete</button>
         </td>
         <td>
-          <a class="btn btn-danger" (click)="delete(p.id)">Delete</a>
         </td>
       </tr>
+      </tbody>
 
     </table>
     <a [routerLink]="'/create'" >Tao moi</a>
