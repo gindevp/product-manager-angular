@@ -42,8 +42,11 @@ export class EditproductComponent implements OnInit {
   }
 
   updateProduct(){
-    debugger
-    this.productService.updateProduct(this.product.id, this.product);
+    this.productService.updateProduct(this.product.id, this.product).subscribe(()=>{
+      this.router.navigate(['/']);
+    });
+    // this.router.navigateByUrl("/");
+
   }
 
 }
