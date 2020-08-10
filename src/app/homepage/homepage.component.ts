@@ -30,7 +30,7 @@ export class HomepageComponent implements OnInit {
         next =>{this.products = this.getAll();
         },
         error => {
-          alert("error when delete user")
+          alert("error")
         }
       );
     }

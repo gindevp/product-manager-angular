@@ -1,12 +1,19 @@
 <p>categorylist works!</p>
-<table>
+<table class="table">
+  <thead class="thead-dark">
   <tr>
-    <td>id</td>
-    <td>name</td>
-    <td>action</td>
+    <th scope="col">id</th>
+    <th scope="col">name</th>
+    <th scope="col">action</th>
   </tr>
+  </thead>
   <tr *ngFor="let c of categories">
     <td>{{c.id}}</td>
     <td>{{c.name}}</td>
+    <td>
+      <button type="button" class="btn btn-outline-danger" [routerLink]="'/edit/'+c.id">Edit</button>
+      <button type="button" class="btn btn-outline-warning" (click)="delete(c.id)">Delete</button>
+
+    </td>
   </tr>
 </table>

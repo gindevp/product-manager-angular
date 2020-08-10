@@ -27,4 +27,16 @@ export class CategorylistComponent implements OnInit {
     return this.categories;
   }
 
+  delete(id){
+    this.categoryService.deleteCategory(id).subscribe(next=>{
+      alert("thanh cong")
+      for (let index = 0; index<this.categories.length; index++){
+        if (this.categories[index].id == id){
+          this.categories.splice(index,1);
+        }
+      }
+      return this.categories;
+    }, error => alert("error"))
+  }
+
 }

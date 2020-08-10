@@ -15,4 +15,8 @@ export class CategoryService {
   getAllCategory(): Observable<Category[]>{
     return this.httpClient.get<Category[]>(API_URL+"/category")
   }
+
+  deleteCategory(id:number):Observable<Category>{
+    return this.httpClient.delete<Category>(API_URL+`/category/${id}`)
+  }
 }
