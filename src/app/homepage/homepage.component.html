@@ -22,8 +22,8 @@
         <td>{{p.createDate.getDay() + "/" + p.createDate.getMonth()
         + "/" + p.createDate.getFullYear()}}</td>
         <td>
-          <button type="button" class="btn btn-outline-danger" [routerLink]="'/edit/'+p.id">Edit</button>
-          <button type="button" class="btn btn-outline-warning" (click)="delete(p.id)">Delete</button>
+          <button type="button" class="btn btn-outline-warning" [routerLink]="'/edit/'+p.id">Edit</button>
+          <button type="button" class="btn  btn-outline-danger" (click)="delete(p.id)">Delete</button>
         </td>
         <td>
         </td>

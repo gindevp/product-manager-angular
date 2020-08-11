@@ -66,9 +66,11 @@ export class CategorylistComponent implements OnInit {
     else{
       this.categoryService.create(this.category).
       subscribe(response => {
-        this.categories.push(this.category);
+        let newCategory: Category= response;
+        this.categories.push(newCategory);
       });
     }
+    document.getElementById("close").click();
 
   }
 
