@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Category} from "../category";
 import {CategoryService} from "../category.service";
+import {element} from "protractor";
+
 
 @Component({
   selector: 'app-categorylist',
@@ -8,13 +10,14 @@ import {CategoryService} from "../category.service";
   styleUrls: ['./categorylist.component.css']
 })
 export class CategorylistComponent implements OnInit {
-
   categories: Category[] = [];
+  category:Category;
 
   constructor(
     private categoryService: CategoryService
   ) {
-    this.getAll()
+    this.getAll();
+    this.openFormCreate()
   }
 
   ngOnInit(): void {
@@ -37,6 +40,36 @@ export class CategorylistComponent implements OnInit {
       }
       return this.categories;
     }, error => alert("error"))
+  }
+  openFormCreate(){
+    this.category={
+      id: null,
+      name:"",
+      description: "",
+    }
+  }
+  getProduct(id: number){
+    this.categoryService.getCategory(id).
+    subscribe(category =>{
+      this.category = category;
+    });
+    return this.category;
+  }
+  saveCategory(){
+    if (this.category.id != null)
+      this.categoryService.editCategory(this.category.id, this.category)
+        .subscribe( next =>
+      {
+        this.categories = this.getAll();
+      })
+
+    else{
+      this.categoryService.create(this.category).
+      subscribe(response => {
+        this.categories.push(this.category);
+      });
+    }
+
   }
 
 }

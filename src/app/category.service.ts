@@ -19,4 +19,16 @@ export class CategoryService {
   deleteCategory(id:number):Observable<Category>{
     return this.httpClient.delete<Category>(API_URL+`/category/${id}`)
   }
+
+  create(category:Category):Observable<Category>{
+    return this.httpClient.post<Category>(API_URL+"/category", category)
+  }
+
+  getCategory(id:Number):Observable<Category>{
+    return this.httpClient.get<Category>(API_URL+`/category/${id}`);
+  }
+
+  editCategory(id:Number, category:Category): Observable<Category>{
+    return this.httpClient.put<Category>(API_URL+`/category/${id}`, category)
+  }
 }
