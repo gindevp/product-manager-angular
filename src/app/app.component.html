@@ -1,6 +1,21 @@
 <div class="container">
+
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">Navbar</a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
   <div class="row">
-    <router-outlet></router-outlet>
+    <div class="col-2">
+      <p *ngFor="let c of categories">
+        <a [routerLink]="'category/'+c.id">{{c.name}}</a>
+      </p>
+    </div>
+    <div class="col-10">
+      <router-outlet></router-outlet>
+    </div>
 
   </div>
 </div>

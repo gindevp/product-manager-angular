@@ -3,6 +3,8 @@ import {Product} from "../product";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ProductService} from "../product.service";
 import {Router} from "@angular/router";
+import {CategoryService} from "../category.service";
+import {Category} from "../category";
 
 @Component({
   selector: 'app-newproduct',
@@ -15,10 +17,17 @@ export class NewproductComponent implements OnInit {
     name:"",
     description:"",
     code:"",
-    createDate:null
+    createDate:null,
+    category: {
+      id: -1,
+    }
   };
+  categories: Category[]=[];
+
   constructor(private productService: ProductService,
+              private categoryService: CategoryService,
               private router: Router) {
+    this.getAllCategories();
   }
 
   ngOnInit(): void {
@@ -30,5 +39,11 @@ debugger
       .subscribe(() => {
       this.router.navigate(['/']);
     });
+  }
+
+  getAllCategories(){
+    this.categoryService.getAllCategory().subscribe(categories=>{
+      this.categories = categories;
+    })
   }
 }

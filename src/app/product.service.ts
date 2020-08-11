@@ -33,4 +33,8 @@ export class ProductService {
   deleteProduct(id:number):Observable<Product>{
     return this.httpClient.delete<Product>(API_URL+`/product/${id}`)
   }
+
+  getAllProductByCategory(id:Number):Observable<Product[]>{
+    return this.httpClient.get<Product[]>(API_URL+`/category/${id}/products`)
+  }
 }

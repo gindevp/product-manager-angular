@@ -1,0 +1,36 @@
+<!--<p>{{product1.name}}</p>-->
+
+<h1>List products</h1>
+
+<a [routerLink]="'/create'" >Tao moi san pham</a>
+<a [routerLink]="'/category'">Category</a>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">code</th>
+    <th scope="col">name</th>
+    <th scope="col">date</th>
+    <th scope="col">category</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of products">
+    <td>{{p.id}}</td>
+    <td>{{p.code}}</td>
+    <td>{{p.name}}</td>
+    <td>{{p.createDate.getDay() + "/" + p.createDate.getMonth()
+    + "/" + p.createDate.getFullYear()}}</td>
+    <td>{{p.category.name}}</td>
+    <td>
+      <button type="button" class="btn btn-outline-warning" [routerLink]="'/edit/'+p.id">Edit</button>
+      <button type="button" class="btn  btn-outline-danger">Delete</button>
+    </td>
+    <td>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+

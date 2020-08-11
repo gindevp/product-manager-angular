@@ -11,6 +11,7 @@
         <th scope="col">code</th>
         <th scope="col">name</th>
         <th scope="col">date</th>
+        <th scope="col">category</th>
         <th scope="col">Action</th>
       </tr>
       </thead>
@@ -21,6 +22,7 @@
         <td>{{p.name}}</td>
         <td>{{p.createDate.getDay() + "/" + p.createDate.getMonth()
         + "/" + p.createDate.getFullYear()}}</td>
+        <td>{{p.category.name}}</td>
         <td>
           <button type="button" class="btn btn-outline-warning" [routerLink]="'/edit/'+p.id">Edit</button>
           <button type="button" class="btn  btn-outline-danger" (click)="delete(p.id)">Delete</button>

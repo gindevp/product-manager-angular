@@ -3,6 +3,6 @@ export interface Product {
   code : string,
   name : string,
   description : string,
-  createDate : Date
-
+  createDate : Date,
+  category ?: any
 }

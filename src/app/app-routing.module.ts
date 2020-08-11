@@ -4,6 +4,7 @@ import {HomepageComponent} from "./homepage/homepage.component";
 import {NewproductComponent} from "./newproduct/newproduct.component";
 import {EditproductComponent} from "./editproduct/editproduct.component";
 import {CategorylistComponent} from "./categorylist/categorylist.component";
+import {CategorydetailComponent} from "./categorydetail/categorydetail.component";
 
 
 const routes: Routes = [{
@@ -21,6 +22,10 @@ const routes: Routes = [{
   {
     path:'category',
     component:CategorylistComponent
+  },
+  {
+    path:'category/:id',
+    component:CategorydetailComponent
   }
 ];
 

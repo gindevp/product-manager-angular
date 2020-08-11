@@ -10,12 +10,17 @@
     </tr>
     <tr>
       <td>createDate</td>
-      <td><input type="date" name="createDate" [(ngModel)]="product.createDate" ></td>
+      <td><input type="date" name="createDate" [(ngModel)]="product.createDate"></td>
     </tr>
     <tr>
       <td>description</td>
       <td><input type="text" name="des" [(ngModel)]="product.description"></td>
     </tr>
+    <select [(ngModel)]="product.category.id" name="category">
+      <option *ngFor="let c of categories" [value]="c.id">
+        {{c.name}}
+      </option>
+    </select>
     <tr>
       <td></td>
       <td><input type="submit" value="tao moi"></td>
