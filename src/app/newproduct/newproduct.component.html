@@ -1,29 +1,28 @@
 <form (ngSubmit)="createProduct()">
-  <table>
-    <tr>
-      <td>Name</td>
-      <td><input type="text" name="name" [(ngModel)]="product.name"></td>
-    </tr>
-    <tr>
-      <td>Name</td>
-      <td><input type="text" name="code" [(ngModel)]="product.code"></td>
-    </tr>
-    <tr>
-      <td>createDate</td>
-      <td><input type="date" name="createDate" [(ngModel)]="product.createDate"></td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td><input type="text" name="des" [(ngModel)]="product.description"></td>
-    </tr>
-    <select [(ngModel)]="product.category.id" name="category">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" [(ngModel)]="product.name" class="form-control" id="name" aria-describedby="" placeholder="">
+    </div>
+    <div class="form-group">
+      <label for="name">Code</label>
+      <input type="text" name="code" [(ngModel)]="product.code" class="form-control" id="code" aria-describedby="" placeholder="">
+    </div>
+    <div class="form-group">
+      <label for="createDate">Create Date</label>
+      <input type="date" name="code" [(ngModel)]="product.createDate" class="form-control" id="createDate" aria-describedby="" placeholder="">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea name="description" [(ngModel)]="product.description" class="form-control" id="description" aria-describedby="" placeholder=""></textarea>
+    </div>
+
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select id="category" class="form-control" [(ngModel)]="product.category.id" name="category">
       <option *ngFor="let c of categories" [value]="c.id">
         {{c.name}}
       </option>
     </select>
-    <tr>
-      <td></td>
-      <td><input type="submit" value="tao moi"></td>
-    </tr>
-  </table>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

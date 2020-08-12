@@ -56,7 +56,7 @@ export class CategorylistComponent implements OnInit {
     return this.category;
   }
   saveCategory(){
-    if (this.category.id != null)
+    if (this.category.id)
       this.categoryService.editCategory(this.category.id, this.category)
         .subscribe( next =>
       {

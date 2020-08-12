@@ -20,8 +20,7 @@
         <td>{{p.id}}</td>
         <td>{{p.code}}</td>
         <td>{{p.name}}</td>
-        <td>{{p.createDate.getDay() + "/" + p.createDate.getMonth()
-        + "/" + p.createDate.getFullYear()}}</td>
+        <td>{{p.createDate|date}}</td>
         <td>{{p.category.name}}</td>
         <td>
           <button type="button" class="btn btn-outline-warning" [routerLink]="'/edit/'+p.id">Edit</button>

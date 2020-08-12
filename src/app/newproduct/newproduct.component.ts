@@ -34,7 +34,6 @@ export class NewproductComponent implements OnInit {
   }
 
   createProduct() {
-debugger
     this.productService.createProduct(this.product)
       .subscribe(() => {
       this.router.navigate(['/']);
