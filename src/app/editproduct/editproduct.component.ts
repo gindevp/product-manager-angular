@@ -4,6 +4,8 @@ import {ProductService} from "../product.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {Product} from "../product";
+import {CategoryService} from "../category.service";
+import {Category} from "../category";
 
 @Component({
   selector: 'app-editproduct',
@@ -18,11 +20,16 @@ export class EditproductComponent implements OnInit {
     name:"name",
     createDate: null,
     code:"àhajsf",
-    description: "Mo ta"
+    description: "Mo ta",
+    category:{
+      id:-1,
+    }
   };
   id: number;
+  categories: Category[]=[]
 
   constructor(private productService: ProductService,
+              private categoryService: CategoryService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
     this.sub = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
@@ -32,6 +39,7 @@ export class EditproductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAllCategories()
   }
 
   getProduct(id: number){
@@ -47,6 +55,12 @@ export class EditproductComponent implements OnInit {
     });
     // this.router.navigateByUrl("/");
 
+  }
+
+  getAllCategories(){
+    this.categoryService.getAllCategory().subscribe(categories=>{
+      this.categories = categories;
+    })
   }
 
 }

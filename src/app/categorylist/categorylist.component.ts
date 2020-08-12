@@ -31,15 +31,17 @@ export class CategorylistComponent implements OnInit {
   }
 
   delete(id){
-    this.categoryService.deleteCategory(id).subscribe(next=>{
-      alert("thanh cong")
-      for (let index = 0; index<this.categories.length; index++){
-        if (this.categories[index].id == id){
-          this.categories.splice(index,1);
+    if(confirm("Bạn có thực sự muốn xóa?")) {
+      this.categoryService.deleteCategory(id).subscribe(next => {
+
+        for (let index = 0; index < this.categories.length; index++) {
+          if (this.categories[index].id == id) {
+            this.categories.splice(index, 1);
+          }
         }
-      }
-      return this.categories;
-    }, error => alert("error"))
+        return this.categories;
+      }, error => alert("error"))
+    }
   }
   openFormCreate(){
     this.category={
